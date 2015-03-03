@@ -1,0 +1,13 @@
+# TODO list
+
+> Site
+    > Layout
+        > Bootstrap
+    > Interface
+        > Map
+            > tafels
+            > Updatable ?
+        > Comment sectie
+            > rating
+        > inlog 
+
