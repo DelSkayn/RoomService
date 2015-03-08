@@ -2,7 +2,7 @@
 
 So this is the repository
 
-## Regulations
+#### Regulations
 
 Please put things in the correct folder. As discribed by the neat little table below.
 
@@ -12,3 +12,4 @@ Folder | File
 .js | src
 .css | style
 Pictures and other rescources | res
+Documentation | doc
