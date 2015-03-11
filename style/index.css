@@ -1,15 +1,25 @@
 
-
-
-.content-container{
+html{
     height: 100%;
 }
 
-.sidebar{
+body{
+    height: 100%;
+}
+
+.rs-full-height{
+    height: 100%;
+}
+
+.rs-content-container{
+    height: 100%;
+}
+
+.rs-sidebar{
     background-color: #BADA55;
     height: 100%;
 }
 
-.map-container{
-    height:100%;
+.rs-map-container{
+    min-height: 500px;
 }
