@@ -50,4 +50,3 @@ Mees
 Altijd eerst pullen voor dat je dingen gaat aanpasen. Dit maakt het makkelijker voor jou en voor anderen.
 
 Als je echt goed bezig wil zijn maak je eigen brach aan en werk daarop. Dit is voornamelijk handig als je met je eigen deel bezig ben.
-En als je klaar bent een pull request zou willen aanmaken is dat helemaal top. Dan kan iedereen even je code doornemen op mogelijke problemen.
