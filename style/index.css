@@ -1,6 +1,7 @@
 
 html{
     height: 100%;
+    overflow: hidden;
 }
 
 body{
@@ -15,11 +16,25 @@ body{
     height: 100%;
 }
 
+.rs-sidebar-wrap{
+    height: 100%; 
+}
+
 .rs-sidebar{
+    z-index: 1;
+    width: 300px;
+    position: relative;
+    left: 0;
+    right: auto;
     background-color: #BADA55;
     height: 100%;
 }
 
 .rs-map-container{
-    min-height: 500px;
+    width: 100%;
+    background-color: #ffffff;
+    position: absolute;
+    min-height: 100%;
+    z-index: 2;
+    overflow: scroll;
 }
