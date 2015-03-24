@@ -10,9 +10,9 @@ var l = true;
 function toggleSidebarVisablity() {
     if (l) {
         $(".rs-content-container").css({overflow: "hidden"});
-        $(".rs-map-container").animate({left: "300px"});
+        $(".rs-map-wrapper").animate({left: "300px"});
     }else{
-        $(".rs-map-container").animate({left: "0px"},function(){
+        $(".rs-map-wrapper").animate({left: "0px"},function(){
             $(".rs-content-container").css({overflow: ""});
         });
     }

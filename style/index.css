@@ -30,11 +30,17 @@ body{
     height: 100%;
 }
 
-.rs-map-container{
+.rs-map-wrapper{
     width: 100%;
     background-color: #ffffff;
     position: absolute;
     min-height: 100%;
     z-index: 2;
-    overflow: scroll;
+    overflow: hidden;
+}
+
+.rs-map-container{
+	margin-top:50px;
+	height: 100%;
+	overflow: hidden;
 }
