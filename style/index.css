@@ -1,3 +1,14 @@
+/* ----------------------
+ * - Bootstrap override -
+ * ----------------------*/
+ 
+
+.navbar-brand{
+	padding: 7px;
+}
+
+/*-----------------------*/
+
 
 html{
     height: 100%;
@@ -43,4 +54,10 @@ body{
 	margin-top:50px;
 	height: 100%;
 	overflow: hidden;
+}
+
+.rs-img-resize{
+	max-height: 100%;
+	max-width: 100%;
+	display: block;
 }
