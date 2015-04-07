@@ -51,13 +51,43 @@ body{
 }
 
 .rs-map-container{
-	margin-top:50px;
+	margin-top:60px;
 	height: 100%;
 	overflow: hidden;
+    margin-right: 10px;
+    margin-left: 10px;
 }
 
 .rs-img-resize{
 	max-height: 100%;
 	max-width: 100%;
 	display: block;
+}
+
+.rs-img-resize-width{
+    width: 100%;
+    display: block;
+}
+
+.rs-center {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.rs-register-container {
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+    border-radius: 6px;
+    background-color: #bebebe;
+    padding-bottom: 10px;
+    padding-top: 30px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.rs-reg-form{
+    margin: 20px;
+    padding-bottom: 10px;
+    padding-top: 10px;
 }
