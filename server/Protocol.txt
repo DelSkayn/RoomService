@@ -1,0 +1,36 @@
+== THE PROTOCOL ==
+
+This is a documention over how the server and client interact.
+This is written before getting started with the actual server.
+If things dont make sense you can change them
+
+
+Data: 
+
+The server has control over all the data that roomservice uses.
+This includes:
+
+* Login data:
+    - email
+    - password
+    - etc.
+* Map data:
+    - Room:
+        - position on map (x ,y)
+        - heigth (w ,h)
+        - comments and such
+    - Individual places:
+        - position on map (x ,y)
+        - heigth (w ,h)
+        - ratings
+
+The map data can just be requested:
+    TODO: add request form
+
+The login data must only be supplied when we know the client was loggedin.
+When requesting login and other sensitive data the client must have made a succes full login request.
+When the server recieves a login request it will compare the data received ( Username, password) and when a user is found it will create an interaction instance.
+This instance has a unique id which will be send back and can the be used to recieve sensitive data
+
+
+
