@@ -23,8 +23,9 @@ Types.User.find({isAdmin: true}, function(err,admins){
     }
     console.log("Admins are: ");
     for(var i = 0;i < admins.length;i++){
-        console.log(admins[i].userName);
+        console.log(" * " + admins[i].userName);
     }
 });
 
 app.listen(8080);
+console.log("Web server started");
