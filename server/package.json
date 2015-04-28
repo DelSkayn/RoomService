@@ -4,9 +4,11 @@
     "version": "0.0.1",
     "private" : true,
     "dependencies" : {
+        "express" : "*",
         "minimist" : "*",
         "extend" : "*",
         "mongoose" : "*",
-        "underscore" : "*"
+        "underscore" : "*",
+        "ejs" : "*"
     }
 }

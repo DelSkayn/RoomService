@@ -1,3 +1,2 @@
-
 var extend = require('extend');
 
