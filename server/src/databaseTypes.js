@@ -10,8 +10,8 @@ db.once('open', function(err,callback){
 
 //Objects have an ID by default
 var UserSchema = new mongoose.Schema({
-	userName: String,
-	passWord: String,
+	userName: {type : String, unique : true, required : true, dropDups : true},
+	passWord: {type : String, unique : true, required : true, dropDups : true, minlength: 5},
 	eMail: String,
 	isAdmin: Boolean,
 });
