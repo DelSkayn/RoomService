@@ -1,7 +1,6 @@
 var Types = require("./src/databaseTypes.js");
 var express = require('express');
 var bodyParser = require('body-parser');
-
 var app = express();
 
 var client_dir = __dirname+ '/../client/';
@@ -27,12 +26,34 @@ app.on('error', function (err){
 
 
 app.get('/',function(req,res){
-    res.render("index.html");
+    res.render("index.ejs");
 });
 
 //redirect index.html to /
 app.get('/index.html',function(req,res){
     res.redirect('/');
+});
+
+app.post('/register',function(req,res){
+    if(typeof req.body.name !== 'undifined')
+    Types.User.find({userName: req.body.name}, function(err,ress){
+        if(ress.length == 0){
+
+            console.log("Registering new user :" + req.body.name);
+            newUser = new User({
+                userName: req.body.name,
+                passWord: req.body.pass,
+                eMail: req.body.email,
+                isAdmin: false,
+            });
+            newUser.save(function(err){
+                console.log("Error during registering");
+            });
+        }
+        else{
+            res.render('register',{error: 'User name already taken'});
+        }
+    }
 });
 
 app.post("/login", function(req, res){
