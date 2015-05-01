@@ -11,9 +11,12 @@ db.once('open', function(err,callback){
 //Objects have an ID by default
 var UserSchema = new mongoose.Schema({
 	userName: {type : String, unique : true, required : true, dropDups : true},
-	passWord: {type : String, unique : true, required : true, dropDups : true, minlength: 5},
+	passWord: {type : String, required : true, dropDups : true, minlength: 5},
 	eMail: String,
 	isAdmin: Boolean,
+});
+
+var RoomSchema = new mongoose.Schema({
 });
 
 var User = mongoose.model('User',UserSchema);

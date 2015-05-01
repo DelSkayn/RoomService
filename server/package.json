@@ -9,6 +9,7 @@
         "extend" : "*",
         "mongoose" : "*",
         "underscore" : "*",
-        "ejs" : "*"
+        "ejs" : "*",
+        "body-parser" : "*"
     }
 }
