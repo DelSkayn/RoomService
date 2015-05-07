@@ -26,26 +26,26 @@
         </div>
         <div class="rs-loginbutton">
 		<a class="navbar-brand" href="login.html">
-		    <button>Login</button>
+		    <button class="btn btn-default">Login</button>
 		</a>
         </div>
     </div>
 </nav>
-<div class="rs-content-container">
-	<div class="rs-map-wrapper" >
-		<div class="fluid-container rs-map-container">
-			<img alt="Brand" class="rs-img-resize" src="res/black-logo-large.png">
-            <form action="/login" role="form" method="POST">
-                <div class="form-group">
-					<p>Username:</p>
-                    <input type="text" class="form-control" name="name">
-                    <p>Password:</p>
-                    <input type="text" class="form-control" name="password">
-                </div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-		</div>
-    </div>
+<div class="rs-register-container">
+    <img src="res/logo-large.png" class="rs-img-resize-width rs-center">
+    <h3>Login</h3>
+    </br>
+    <form action="/login" role="form" method="POST">
+        <div class="form-group">
+            <label for="name">Username:</label>
+            <input type="text" class="form-control" id="name" placeholder="Enter username">
+        </div>
+        <div class="form-group">
+            <label for="password">Password:</label>
+            <input type="password" class="form-control" id="password" placeholder="Enter password">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+    </form>
 </div>
 
 </body>

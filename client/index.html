@@ -26,7 +26,7 @@
         </div>
         <div class="rs-loginbutton">
 		<a class="navbar-brand" href="login.html">
-		    <button>Login</button>
+		    <button class="btn btn-default">Login</button>
 		</a>
         </div>
     </div>
@@ -40,19 +40,18 @@
         <div class="rs-sidebar">
 			<p><br/></p>
 			<p><br/></p>
-			<div class="rs-sidebar-comment-form">
-			<!--action="/post comment"--><form  role="form" method="POST">
-			</div>
+
 			<div class="rs-sidebar-comment">
-				<p>Neon</p>
-				<p>This is a comment</p>
+				<p>username</p>
+				<p>comment</p>
 			</div>
-            <p>Some stuff</p>
-            <p>Some stuff</p>
-            <p>Some stuff</p>
-            <p>Some stuff</p>
-            <p>Some stuff</p>
-            <p>Some stuff</p>
+			<div class="rs-sidebar-comment-form">
+			<form action="/post-comment" role="form" method="POST">
+				<div class="form-group">
+				    <label for="comment">Comment</label>
+				    <input type="text" class="form-control" id="comment" placeholder="Your comment here">
+				</div>
+			</div>
         </div>
 </div>
 </body>
