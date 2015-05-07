@@ -23,6 +23,10 @@ body{
     height: 100%;
 }
 
+.rs-loginbutton{
+	float: right;
+}
+
 .rs-content-container{
     height: 100%;
 }
@@ -39,6 +43,30 @@ body{
     right: auto;
     background-color: #BADA55;
     height: 100%;
+}
+
+.rs-sidebar-comment-form{
+    float: top;
+    border: 2px solid #a1a1a1;
+    padding: 15px 15px;
+    background: #FFFF00;
+    width: 300px;
+    border-radius: 15px;
+    text-align: left;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size: 12;
+}
+
+.rs-sidebar-comment{
+    margin: 0 auto;
+    border: 2px solid #a1a1a1;
+    padding: 15px 15px;
+    background: #FFFF00;
+    width: 280px;
+    border-radius: 15px;
+    text-align: left;
+    font-family:"Comic Sans MS", cursive, sans-serif;
+    font-size: 12;
 }
 
 .rs-map-wrapper{
