@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+    <script src="jquery/jquery-2.1.3.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+    <!-- own ccs file -->
+    <link rel="stylesheet" href="style/index.css">
+
+    <script src="src/index.js"></script>
+    <meta charset="UTF-8">
+    <title>Register</title>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class = "container-fluid">
+        <div class="navbar-header">
+		<a class="navbar-brand" href="index.html">
+			<img alt="Brand" class="rs-img-resize" src="res/logo-small.png">
+		</a>
+        </div>
+        <div class="rs-registerbutton">
+		<a class="navbar-brand" href="register.html">
+		    <button class="btn btn-default">Register</button>
+		</a>
+        </div>
+        <div class="rs-loginbutton">
+		<a class="navbar-brand" href="login.html">
+		    <button class="btn btn-default">Login</button>
+		</a>
+        </div>
+    </div>
+</nav>
+<div class="container">
+    <div class="rs-register-container">
+        <img src="res/logo-large.png" class="rs-img-resize-width rs-center">
+            <h3>Register an account</h3>
+            </br>
+            <div class="form-group">
+                <label for="email">Email address</label>
+                <input type="email" class="form-control" id="email" placeholder="Enter email">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" class="form-control" id="password" placeholder="Password">
+            </div>
+            <div class="form-group">
+                <label for="password-again">Password again</label>
+                <input type="password" class="form-control" id="password-again" placeholder="Password again">
+            </div>
+            <div class="checkbox">
+                <label>
+                    <input type="checkbox"> I agree to the terms of service.
+                </label>
+            </div>
+            <button type="submit" class="btn btn-default">Submit</button>
+        </form>
+</div>
+
+</body>
+</html>

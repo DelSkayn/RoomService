@@ -25,6 +25,12 @@ body{
 
 .rs-loginbutton{
 	float: right;
+	padding: 2px;
+}
+
+.rs-registerbutton{
+	float: right;
+	padding: 2px;
 }
 
 .rs-content-container{
