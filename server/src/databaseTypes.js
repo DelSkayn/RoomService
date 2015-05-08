@@ -16,16 +16,33 @@ var UserSchema = new mongoose.Schema({
 	isAdmin: Boolean,
 });
 
-var RoomSchema = new mongoose.Schema({
-});
-
 var User = mongoose.model('User',UserSchema);
 
-//TODO fully implement
-//max kijk hier naar
 var roomSchema = new mongoose.Schema({
-    floor: String,
+	roomPos: String,
+	roomName:{type : String, unique : true, required : true, dropDups : true},
+ 	floorfloor: String,//floor is keyword jammergenoeg
 
 });
+
+var ratingRoomSchema = new mongoose.Schema({
+	rating: Number,
+	userID: {type : String, unique : true, required : true, dropDups : true},
+	roomID: {type : String, unique : true, required : true, dropDups : true},
+
+});
+
+var tableSchema = new mongoose.Schema({
+	roomPos: String,
+	roomID: {type : String, unique : true, required : true, dropDups : true},	
+});
+
+var commentSchema = new mongoose.Schema({
+	userID: {type : String, unique : true, required : true, dropDups : true},
+	dateComment: Date,
+	commentText: {type : String, unique: false, required: false, maxlength : 120},
+	roomID {type : String, unique : true, required : true, dropDups : true}
+	
+)};
 
 exports.User = User;
