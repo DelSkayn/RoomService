@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>Room Service</title>
+
+
+<!-- bootstrap css file -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+<script src="jquery/jquery-2.1.3.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+<!-- own ccs file -->
+<link rel="stylesheet" href="style/index.css">
+
+<script src="src/index.js"></script>
+
+<script src="image-map-resizer/js/imageMapResizer.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('map').imageMapResize();
+    });
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class = "container-fluid">
+        <div class="navbar-header">
+		<a class="navbar-brand" href="index.html">
+			<img alt="Brand" class="rs-img-resize" src="res/logo-small.png">
+		</a>
+        </div>
+        <div class="rs-registerbutton">
+		<a class="navbar-brand" href="register.html">
+		    <button class="btn btn-default">Register</button>
+		</a>
+        </div>
+        <div class="rs-loginbutton">
+		<a class="navbar-brand" href="login.html">
+		    <button class="btn btn-default">Login</button>
+		</a>
+        </div>
+    </div>
+</nav>
+<div class="rs-content-container">
+	<div class="rs-map-wrapper" >
+		<div class="fluid-container rs-map-container">
+            <img src="res/begane_grond-1.jpg" alt="beganegrond" usemap="#beganegrond" width="50%" height="50%">
+	        <map name="beganegrond">
+                <area shape="rect" coords="840,18,960,180" href="www.liacs.nl" alt="312">
+                <area shape="rect" coords="970,18,1110,180" href="www.liacs.nl" alt="313">
+                <area shape="rect" coords="835,300,940,515" href="www.liacs.nl" alt="306/308">
+                <area shape="rect" coords="835,529,940,740" href="www.liacs.nl" alt="302/304">
+                <area shape="rect" coords="1000,300,1100,405" href="www.liacs.nl" alt="309">
+                <area shape="rect" coords="1000,410,1100,515" href="www.liacs.nl" alt="307">
+                <area shape="rect" coords="1000,520,1100,630" href="www.liacs.nl" alt="305">
+                <area shape="rect" coords="1000,635,1100,740" href="www.liacs.nl" alt="301">
+                <area shape="rect" coords="1000,750,1100,850" href="www.liacs.nl" alt="313">
+                <area shape="rect" coords="10,535,240,650" href="www.liacs.nl" alt="B4">
+                <area shape="rect" coords="10,655,240,765" href="www.liacs.nl" alt="B3">
+                <area shape="rect" coords="10,775,240,885" href="www.liacs.nl" alt="B2">
+                <area shape="rect" coords="10,895,225,1005" href="www.liacs.nl" alt="B1">
+            </map>
+            <br/>
+			<button id="collapse" class="btn">Button</button>
+		</div>
+	</div>
+    <div class="rs-sidebar">
+        <p><br/></p>
+        <p><br/></p>
+		<div class="rs-sidebar-comment">
+            <p>username</p>
+			<p>comment</p>
+		</div>
+		<div class="rs-sidebar-comment-form">
+			<form action="/post-comment" role="form" method="POST">
+				<div class="form-group">
+				    <label for="comment">Comment</label>
+				    <textarea class="form-control" id="comment" placeholder="Your comment here"></textarea>
+				</div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

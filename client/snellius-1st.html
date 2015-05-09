@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>Room Service</title>
+
+
+<!-- bootstrap css file -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+<script src="jquery/jquery-2.1.3.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+<!-- own ccs file -->
+<link rel="stylesheet" href="style/index.css">
+
+<script src="src/index.js"></script>
+
+<script src="image-map-resizer/js/imageMapResizer.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('map').imageMapResize();
+    });
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class = "container-fluid">
+        <div class="navbar-header">
+		<a class="navbar-brand" href="index.html">
+			<img alt="Brand" class="rs-img-resize" src="res/logo-small.png">
+		</a>
+        </div>
+        <div class="rs-registerbutton">
+		<a class="navbar-brand" href="register.html">
+		    <button class="btn btn-default">Register</button>
+		</a>
+        </div>
+        <div class="rs-loginbutton">
+		<a class="navbar-brand" href="login.html">
+		    <button class="btn btn-default">Login</button>
+		</a>
+        </div>
+    </div>
+</nav>
+<div class="rs-content-container">
+	<div class="rs-map-wrapper" >
+		<div class="fluid-container rs-map-container">
+            <img src="res/eerste_verdieping-1.jpg" alt="eerste verdieping" usemap="#eersteverdieping" width="30%" height="30%">
+            <map name="eersteverdieping">
+                <area shape="rect" coords="340,20,465,185" href="www.liacs.nl" alt="412">
+                <area shape="rect" coords="475,20,605,185" href="www.liacs.nl" alt="413">
+                <area shape="rect" coords="335,190,440,300" href="www.liacs.nl" alt="410">
+                <area shape="rect" coords="335,305,440,410" href="www.liacs.nl" alt="408">
+                <area shape="rect" coords="335,415,440,525" href="www.liacs.nl" alt="406">
+                <area shape="rect" coords="335,525,440,635" href="www.liacs.nl" alt="404">
+                <area shape="rect" coords="335,640,440,745" href="www.liacs.nl" alt="402">
+                <area shape="rect" coords="505,190,605,300" href="www.liacs.nl" alt="411">
+                <area shape="rect" coords="505,305,605,410" href="www.liacs.nl" alt="409">
+                <area shape="rect" coords="505,415,605,525" href="www.liacs.nl" alt="407">
+                <area shape="rect" coords="505,525,605,635" href="www.liacs.nl" alt="405">
+                <area shape="rect" coords="505,640,605,745" href="www.liacs.nl" alt="403">
+                <area shape="rect" coords="505,750,605,855" href="www.liacs.nl" alt="401">
+                <area shape="rect" coords="210,750,325,860" href="www.liacs.nl" alt="176">
+                <area shape="rect" coords="20,750,205,860" href="www.liacs.nl" alt="174">
+            </map>
+            <br/>
+			<button id="collapse" class="btn">Button</button>
+		</div>
+	</div>
+    <div class="rs-sidebar">
+        <p><br/></p>
+        <p><br/></p>
+		<div class="rs-sidebar-comment">
+            <p>username</p>
+			<p>comment</p>
+		</div>
+		<div class="rs-sidebar-comment-form">
+			<form action="/post-comment" role="form" method="POST">
+				<div class="form-group">
+				    <label for="comment">Comment</label>
+				    <textarea class="form-control" id="comment" placeholder="Your comment here"></textarea>
+				</div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
