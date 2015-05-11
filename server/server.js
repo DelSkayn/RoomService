@@ -45,8 +45,15 @@ function auth(name, pass, fn){
 }
 
 app.get('/',function(req,res){
-    console.log("called");
-    res.render("index.ejs");
+    if(req.session.auth){
+        user = req.session.user;
+        console.log("called");
+        console.log(req.session.user);
+        res.render("index.ejs",{username: user, isAdmin: req.session.admin});
+    }else{
+        console.log("called 2");
+        res.render("index.ejs",{});
+    }
 });
 
 //redirect index.html to /
@@ -86,6 +93,7 @@ app.post('/register',function(req,res){
 app.get('/login', function(req, res){
     if(typeof req.session.error !== 'undefined'){
         res.render('web/login.ejs',{error: req.session.error});
+        delete req.session.error;
     }else{
         res.render('web/login.ejs');
     }
@@ -103,6 +111,9 @@ app.post("/login", function(req, res){
             console.log("Auth passed");
             req.session.regenerate(function(){
                 req.session.user = data.userName;
+                req.session.admin = data.isAdmin;
+                req.session.auth = true;
+                req.session.random = 39573935;
                 res.redirect('back');
             });
         }else{
@@ -110,6 +121,29 @@ app.post("/login", function(req, res){
             req.session.error = 'Authentication failed';            
             res.redirect('login');
         }
+    });
+});
+
+app.get('/logout', function(req, res){
+    if(req.session){
+        console.log("logout");
+        req.session.auth = false;
+        req.session.destroy(function(){
+            res.redirect('/');
+        });
+    }
+});
+
+function restrict(req,res,next){
+    if(res.session.admin){
+        next();
+    }
+    res.redirect('/');
+}
+
+app.get('/admin',restrict,function(req,res){
+    Types.User.find(function(err,data){
+        res.render("admin.ejs",{user_data:data});
     });
 });
 

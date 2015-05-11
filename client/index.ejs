@@ -30,12 +30,16 @@
     <div class="rs-map-wrapper" >
         <div class="fluid-container rs-map-container">
             <button id="collapse" class="btn">Button</button>
+            <% if(typeof username === "undefined") { %>
             <form action="/login" role="form" method="POST">
                 <div class="form-group">
                     <input type="text" class="form-control" name="name">
                 </div>
                 <button type="submit" class="btn btn-default">Submit</button>
             </form>
+            <% }else{ %>
+            <p> welkom <%= username %> <%= isAdmin %> </p>
+            <% } %>
         </div>
     </div>
     <div class="rs-sidebar">
@@ -45,6 +49,7 @@
         </br>
         <a href="/register"><p>Some stuff</p></a>
         <a href='/login'><p>Some stuff</p></a>
+        <a href='/logout'><p>Logout</p></a>
         <p>Some stuff</p>
         <p>Some stuff</p>
         <p>Some stuff</p>
