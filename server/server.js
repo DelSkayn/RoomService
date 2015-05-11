@@ -1,7 +1,9 @@
 var Types = require("./src/databaseTypes.js");
+var Types = require("./src/databaseTypes.js");
 var express = require('express');
 var bodyParser = require('body-parser');
-
+var session = require('express-session');
+var cookieParser = require('cookie-parser');
 var app = express();
 
 var client_dir = __dirname+ '/../client/';
@@ -10,7 +12,13 @@ var client_dir = __dirname+ '/../client/';
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true}));
 
+app.use(cookieParser('smds84hjy9x53hy90g7'));
+app.use(session({resave: true,saveUninitialized: false
+    ,secret: "Shhh this is a secret"}));
+
+
 app.set('views', client_dir);
+app.set('view engine','ejs');
 app.engine('html' ,require('ejs').renderFile);
 
 //allow excess to resources
@@ -25,27 +33,52 @@ app.on('error', function (err){
     console.log(err.message);
 });
 
-
 app.get('/',function(req,res){
-    res.render("index.html");
+    res.render("index.ejs");
 });
 
-//redirect index.html to /
-app.get('/index.html',function(req,res){
-    res.redirect('/');
+app.get("/login", function(req, res){ 
+    if(typeof req.session.error !== 'undefined'){
+        res.render("web/login.ejs",{error: req.session.error});
+    }else{
+        res.render("web/login.ejs");
+    }
 });
 
-app.post("/login", function(req, res){
-    Types.User.find({userName: req.body.name}, function(err,ress){
-        if(ress.length != 0){
-            console.log("Hello " + ress[0].userName, "\n your email is: " + ress[0].eMail);
-        }else{
-            console.log("Not found");
-        }
-        res.redirect('/');
-    });
+app.post("/login", function(req, res){ 
+    console.log("Post equals: ");
+    console.log(req.body);
+    if(typeof req.body.name !== 'undefined'){
+        Types.User.findOne({userName: req.body.name,passWord: req.body.pass}
+            ,function(err,ress){
+            if(res){
+                console.log("User logging in");
+                req.session.regenerate(function(){
+                    req.session.userName = data.userName;
+                    req.session.isAdmin = data.isAdmin;
+                    req.session.auth = true;
+                    res.redirect('back');
+                });
+            }else{
+               console.log("User auth failed");
+               req.session.error = 'Authentication failed';
+               res.redirect('login');
+            }
+        });
+    }
 });
 
+app.post("/register", function(req, res){ 
+    res.render("web/login.ejs");
+});
+
+app.post("/floor", function(req, res){ 
+    res.render("web/floor.ejs");
+});
+
+app.post("/room", function(req, res){ 
+    res.render("web/room.ejs");
+});
 
 //look if the connection actually works
 Types.User.find({isAdmin: true}, function(err,admins){
