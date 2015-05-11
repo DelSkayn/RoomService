@@ -109,6 +109,8 @@ floors.forEach(function(adm){
         console.log(res);
         if (res.length == 0) {
             adm.save();
+            console.log("saving:")
+            console.log(adm);
         }else{
             console.log("not saving");
         }

@@ -129,12 +129,13 @@ app.get("/floor", function(req, res){
     var floor = req.query.floorname;
     console.log(floor);
     if(floor){
-    Types.Floor.findOne({floorName: floor},'roomPos roomName',function(err,data){
+    Types.Floor.findOne({floorName: floor},'floorName floorPicture',function(err,data){
         if(data){
             Types.Room.find({floorId: data._id},function(err2,roomData){
                 console.log(roomData);
+                console.log(data);
                 res.render("web/floors.ejs",{
-                    link: data.roomPicture,
+                    link: data.floorPicture,
                     rooms: roomData,
                 });
             });
