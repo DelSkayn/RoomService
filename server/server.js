@@ -86,10 +86,10 @@ app.post("/register", function(req, res){
         (typeof req.body.email !== 'undefined')){
 
         if(req.body.check != 'on'){
-            //req.session.error = "Please check the box";
+            req.session.error = "Please check the box";
             res.redirect("/register");
         }else if(req.body.pass != req.body.pass2){
-            //req.session.error = "Passwords dont match";
+            req.session.error = "Passwords dont match";
             res.redirect("/register");
         }else if(req.body.name === "") {
             req.session.error = "Please fill in a name";
@@ -123,6 +123,7 @@ app.post("/register", function(req, res){
         res.redirect("/register");
     }
 });
+
 
 app.post("/floor", function(req, res){ 
     res.render("web/floor.ejs");
