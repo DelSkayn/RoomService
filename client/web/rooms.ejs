@@ -62,21 +62,7 @@
 		</div>
 	</div>
     <div class="rs-sidebar">
-        <p><br/></p>
-        <p><br/></p>
-		<div class="rs-sidebar-comment">
-            <p>username</p>
-			<p>comment</p>
-		</div>
-		<div class="rs-sidebar-comment-form">
-			<form action="/post-comment" role="form" method="POST">
-				<div class="form-group">
-				    <label for="comment">Comment</label>
-				    <textarea class="form-control" id="comment" placeholder="Your comment here"></textarea>
-				</div>
-                <button type="submit" class="btn btn-default">Submit</button>
-            </form>
-        </div>
+            <iframe id="rs-comments" class="rs-comment-frame" src="/comment"></iframe>
     </div>
 </div>
 </body>

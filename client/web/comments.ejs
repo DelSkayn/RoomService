@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>Room Service</title>
+
+
+<!-- bootstrap css file -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+<script src="jquery/jquery-2.1.3.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+<!-- own ccs file -->
+<link rel="stylesheet" href="style/index.css">
+
+<script src="src/index.js"></script>
+
+</head>
+<body>
+<% if (typeof name !== 'undefined'){
+for (var i = 0;i < comments.length;i++){ %>
+<div class="rs-sidebar-comment">
+    <h4><%= comments[i].username%></h4>
+    <p><%=comments[i].text%></p>
+</div>
+<%}}else{%>
+    <p> Please select a room</p>
+<%}%>
+<% if (typeof name !== 'undefined'){%>
+<div class="rs-sidebar-comment-form">
+    <form action="/post-comment?room=<%=name%>" role="form" method="POST">
+        <div class="form-group">
+            <label for="comment">Comment</label>
+                <% if(typeof username === 'undefined'){%>
+                    <textarea class="form-control" id="comment" placeholder="Please login" readonly></textarea>
+                <%}else{%> 
+                    <textarea class="form-control" id="comment" name="commentText" placeholder="Your comment here"></textarea>
+                <%}%> 
+        </div>
+        <% if(typeof username !== 'undefined'){%>
+        <button type="submit" class="btn btn-default">Submit</button>
+        <%}%> 
+    </form>
+</div>
+<%}%>
+</body>

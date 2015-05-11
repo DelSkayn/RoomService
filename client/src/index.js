@@ -23,7 +23,15 @@ $(document).ready(function() {
         toggleSidebarVisablity();
         event.stopPropagation();
     });
-    $('.rs-content-container').click(function(){
+    $('.rs-map-wrapper').click(function(){
         setSidebarVisablity(false);
     });
+    $('area').each(function() {
+            $(this).click(function(event) {
+                setSidebarVisablity(true);
+                event.stopPropagation();
+                $('#rs-comments').attr('src','/comment?room=' + $(this).attr('alt'));
+                console.log($('#rs-comments').attr('src'));
+            });
+        });
 });

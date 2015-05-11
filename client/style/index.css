@@ -144,3 +144,10 @@ body{
     padding-bottom: 10px;
     padding-top: 10px;
 }
+
+.rs-comment-frame{
+    padding-top:50px;
+    position: absolute;
+    height:100%;
+    width:300px;
+}
