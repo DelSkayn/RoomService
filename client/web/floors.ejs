@@ -1,1 +1,79 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+<meta charset="UTF-8">
+<title>Room Service</title>
 
+
+<!-- bootstrap css file -->
+<link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+
+<script src="jquery/jquery-2.1.3.js"></script>
+    <script src="bootstrap/js/bootstrap.js"></script>
+
+<!-- own ccs file -->
+<link rel="stylesheet" href="style/index.css">
+
+<script src="src/index.js"></script>
+
+<script src="image-map-resizer/js/imageMapResizer.min.js"></script>
+<script>
+    $(document).ready(function() {
+        $('map').imageMapResize();
+    });
+</script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top">
+    <div class = "container-fluid">
+        <div class="navbar-header">
+		<a class="navbar-brand" href="index.html">
+			<img alt="Brand" class="rs-img-resize" src="res/logo-small.png">
+		</a>
+        </div>
+        <div class="rs-registerbutton">
+		<a class="navbar-brand" href="register.html">
+		    <button class="btn btn-default">Register</button>
+		</a>
+        </div>
+        <div class="rs-loginbutton">
+		<a class="navbar-brand" href="login.html">
+		    <button class="btn btn-default">Login</button>
+		</a>
+        </div>
+    </div>
+</nav>
+<div class="rs-content-container">
+	<div class="rs-map-wrapper" >
+		<div class="fluid-container rs-map-container">
+            <img src="<%=link%>" alt="beganegrond" usemap="map" width="50%" height="50%">
+	        <map name="map">
+	        <% for(var i=0; i<rooms.length; i++) {%>
+                <area shape="rect" coords="<%=rooms[i].roomPos[0]%>,<%=rooms[i].roomPos[1]%>,<%=rooms[i].roomPos[2]%>,<%=rooms[i].roomPos"i"[3]%>" href="312.html" alt="<%=roomName%>">
+            <% } %>
+            </map>
+            <br/>
+			<button id="collapse" class="btn">Comments</button>
+		</div>
+	</div>
+    <div class="rs-sidebar">
+        <p><br/></p>
+        <p><br/></p>
+		<div class="rs-sidebar-comment">
+            <p>username</p>
+			<p>comment</p>
+		</div>
+		<div class="rs-sidebar-comment-form">
+			<form action="/post-comment" role="form" method="POST">
+				<div class="form-group">
+				    <label for="comment">Comment</label>
+				    <textarea class="form-control" id="comment" placeholder="Your comment here"></textarea>
+				</div>
+                <button type="submit" class="btn btn-default">Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

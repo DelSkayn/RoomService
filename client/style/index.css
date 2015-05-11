@@ -105,6 +105,11 @@ body{
     display: block;
 }
 
+.rs-img-resize-height{
+    height: 100%;
+    display: block;
+}
+
 .rs-center{
     margin-right: auto;
     margin-left: auto;
