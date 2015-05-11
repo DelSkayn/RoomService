@@ -126,8 +126,9 @@ app.post("/register", function(req, res){
 
 
 app.get("/floor", function(req, res){ 
-    var floor = req.param('floorname');
+    var floor = req.params.floorname;
     console.log(floor);
+    if(floor){
     Types.Floor.findOne({floorName: floor},'roomPos roomName',function(err,data){
         if(data){
             Types.Room.find({floorId: data._id},function(err2,roomData){
@@ -140,6 +141,9 @@ app.get("/floor", function(req, res){
             res.redirect("/");
         }
     });
+    }else{
+        res.redirect("/");
+    }
 });
 
 app.post("/room", function(req, res){ 
