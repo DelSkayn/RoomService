@@ -95,7 +95,7 @@ app.post("/register", function(req, res){
             req.session.error = "Please fill in a name";
             res.redirect("/register");
         }else if(req.body.pass.length < 5){
-            req.session.error = "Please fill in a name";
+            req.session.error = "Please use a pass longer then 5 ";
             res.redirect("/register");
         }else{
         
@@ -125,8 +125,21 @@ app.post("/register", function(req, res){
 });
 
 
-app.post("/floor", function(req, res){ 
-    res.render("web/floor.ejs");
+app.get("/floor", function(req, res){ 
+    var floor = req.param('floorname');
+    console.log(floor);
+    Types.Floor.findOne({floorName: floor},'roomPos roomName',function(err,data){
+        if(data){
+            Types.Room.find({floorId: data._id},function(err2,roomData){
+                res.render("web/floor.ejs",{
+                    link: data.roomPicture,
+                    rooms: roomData,
+                });
+            });
+        }else{
+            res.redirect("/");
+        }
+    });
 });
 
 app.post("/room", function(req, res){ 

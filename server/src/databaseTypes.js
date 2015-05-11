@@ -18,25 +18,36 @@ var UserSchema = new mongoose.Schema({
 
 var User = mongoose.model('User',UserSchema);
 
+var floorSchema = new mongoose.Schema({
+    floorName: {type: String, unique : true, required: true, dropDups : true},
+    floorPicture: {type: String, required: true},
+});
+
+var Floor = mongoose.model('Floor',floorSchema);
+
 var roomSchema = new mongoose.Schema({
-	roomPos: String,
+ 	floorId: {type : mongoose.Schema.Types.ObjectId, required : true},
+	roomPos: [Number],
 	roomName:{type : String, unique : true, required : true, dropDups : true},
     roomPicture:{type: String, required : true},
- 	floorfloor: String,//floor is keyword jammergenoeg
-
 });
+
+var Room = mongoose.model('Room', roomSchema);
 
 var ratingRoomSchema = new mongoose.Schema({
 	rating: Number,
 	userID: {type : mongoose.Schema.Types.ObjectId, unique : true, required : true, dropDups : true},
 	roomID: {type : mongoose.Schema.Types.ObjectId, unique : true, required : true, dropDups : true},
-
 });
+
+var Rating = mongoose.model('RatingRoom', ratingRoomSchema);
 
 var tableSchema = new mongoose.Schema({
 	roomPos: String,
-	roomID: {type : mongoose.Schema.Types.ObjectId, unique : true, required : true, dropDups : true},	
+	roomID: {type : mongoose.Schema.Types.ObjectId, unique : true, required : true, dropDups : true},
 });
+
+var Table = mongoose.model('Table',tableSchema);
 
 var commentSchema = new mongoose.Schema({
 	userID: {type : mongoose.Schema.Types.ObjectId, unique : true, required : true, dropDups : true},
@@ -45,4 +56,10 @@ var commentSchema = new mongoose.Schema({
 	roomID:{type : mongoose.Schema.Types.ObjectId, unique : true, required : true, dropDups : true},
 });
 
+var Comment = mongoose.model('Comment', commentSchema);
+
 exports.User = User;
+exports.Table = Table;
+exports.Floor = Floor;
+exports.Rating = Rating;
+exports.Comment = Comment;
