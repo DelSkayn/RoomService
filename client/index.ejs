@@ -2,7 +2,8 @@
 <html>
 <head lang="en">
 <meta charset="UTF-8">
-<title>Room Service Login</title>
+<title>Room Service</title>
+
 
 <!-- bootstrap css file -->
 <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
@@ -15,46 +16,41 @@
 
 <script src="src/index.js"></script>
 </head>
-
 <body>
 <nav class="navbar navbar-inverse navbar-fixed-top">
     <div class = "container-fluid">
         <div class="navbar-header">
-		<a class="navbar-brand" href="index.html">
+		<a class="navbar-brand" href="/">
 			<img alt="Brand" class="rs-img-resize" src="res/logo-small.png">
 		</a>
         </div>
         <div class="rs-registerbutton">
-		<a class="navbar-brand" href="register.html">
+		<a class="navbar-brand" href="web/register">
 		    <button class="btn btn-default">Register</button>
 		</a>
         </div>
         <div class="rs-loginbutton">
-		<a class="navbar-brand" href="login.html">
+		<a class="navbar-brand" href="web/login">
 		    <button class="btn btn-default">Login</button>
 		</a>
         </div>
     </div>
 </nav>
 <div class="container">
-    <div class="rs-login-container">
+    <div class="rs-register-container">
         <img src="res/logo-large.png" class="rs-img-resize-width rs-center">
-        <h3>Login</h3>
+        <h3>Welcome to RoomService!</h3>
         </br>
-        <form action="/login" role="form" method="POST">
-            <div class="form-group">
-                <label for="name">Username:</label>
-                <input type="text" class="form-control" id="name" placeholder="Enter username">
-            </div>
-            <div class="form-group">
-                <label for="password">Password:</label>
-                <input type="password" class="form-control" id="password" placeholder="Enter password">
-            </div>
-            <button type="submit" class="btn btn-default">Submit</button>
-        </form>
+        <p>On this site you can rate and discuss classrooms of our university.
+        <br/>
+        Currently, only classrooms in the snellius building are up for discussing.
+        </p>
+        <p>
+        <a href="web/floors">Snellius Ground Floor</a>
+        <br/>
+        <a href="web/floors">Snellius First Floor</a>
+        </p>
     </div>
 </div>
-
 </body>
-	
 </html>
