@@ -39,7 +39,7 @@ app.get('/',function(req,res){
 
 app.get("/login", function(req, res){ 
     if(typeof req.session.error !== 'undefined'){
-        res.render("web/login.ejs",{error: req.session.error});
+        res.render("web/login.ejs",{error: req.session.error,});
     }else{
         res.render("web/login.ejs");
     }
@@ -51,7 +51,7 @@ app.post("/login", function(req, res){
     if(typeof req.body.name !== 'undefined'){
         Types.User.findOne({userName: req.body.name,passWord: req.body.pass}
             ,function(err,data){
-            if(res){
+            if(data){
                 console.log("User logging in");
                 req.session.regenerate(function(){
                     req.session.userName = data.userName;
@@ -62,18 +62,69 @@ app.post("/login", function(req, res){
             }else{
                console.log("User auth failed");
                req.session.error = 'Authentication failed';
-               res.redirect('login');
+               res.redirect('/login');
             }
         });
     }
 });
 
 app.get("/register", function(req, res){ 
-    res.render("web/register.ejs");
+    if(typeof req.session.error !== 'undefined'){
+        res.render("web/register.ejs",{error: req.session.error,});
+    }else{
+        res.render("web/register.ejs");
+    }
 });
 
 app.post("/register", function(req, res){ 
-    res.render("web/register.ejs");
+    console.log("Post equals: ");
+    console.log(req.body);
+    if( (typeof req.body.name !== 'undefined')&&
+        (typeof req.body.pass !== 'undefined') &&
+        (typeof req.body.pass2 !== 'undefined') &&
+        (typeof req.body.checked !== 'undefined') &&
+        (typeof req.body.email !== 'undefined')){
+
+        if(!req.body.checked){
+            req.session.error = "Please check the box";
+            res.redirect("/register");
+        }
+        
+        if(req.body.pass !== req.body.pass2){
+            req.session.error = "Passwords dont match";
+            res.redirect("/register");
+        }
+
+        if(req.body.name == '') {
+            req.session.error = "Please fill in a name";
+            res.redirect("/register");
+        }
+
+        if(req.body.pass.length < 5){
+            req.session.error = "Please fill in a name";
+            res.redirect("/register");
+        }
+        
+        Types.User.findOne({userName: req.body.name},function(err,data){
+            if(data){
+                req.session.error = "Username allready taken";
+                res.redirect("/register");
+            }else{
+                var newUser = new User({
+                    userName:req.body.name,
+                    passWord: req.body.pass,
+                    eMail: req.body.email,
+                    isAdmin: false,
+                });
+                newUser.save();
+                res.redirect("/");
+            }
+        });
+        
+    }else{
+        req.session.error = "Hmm something went wrong here";
+        res.redirect("/register");
+    }
 });
 
 app.post("/floor", function(req, res){ 
