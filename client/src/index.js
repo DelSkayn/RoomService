@@ -1,14 +1,6 @@
-function setSidebarVisablity(visable){
-    if(visable){
-       $("rs-sidebar-collapse").hide();
-    }else {
-        $("rs-sidebar-collapse").show();
-    }
-}
-
-var l = true;
+var l = false;
 function toggleSidebarVisablity() {
-    if (l) {
+    if (!l) {
         $(".rs-content-container").css({overflow: "hidden"});
         $(".rs-map-wrapper").animate({left: "300px"});
     }else{
@@ -19,10 +11,19 @@ function toggleSidebarVisablity() {
     l = !l;
 }
 
+function setSidebarVisablity(visable){
+    if (visable !== l){
+        toggleSidebarVisablity();
+    }
+}
+
 
 $(document).ready(function() {
-
-    $('#collapse').click(function () {
+    $('#collapse').click(function (event) {
         toggleSidebarVisablity();
+        event.stopPropagation();
+    });
+    $('.rs-content-container').click(function(){
+        setSidebarVisablity(false);
     });
 });

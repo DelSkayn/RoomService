@@ -158,11 +158,11 @@ app.get("/room", function(req, res){
     var room = req.query.roomname;
     console.log(room);
     if(room){
-    Types.Floor.findOne({roomName: room},'floorName floorPicture',function(err,data){
+    Types.Floor.findOne({roomName: room},'roomPicture',function(err,data){
         if(data){
                 console.log(roomData);
                 console.log(data);
-                res.render("web/floors.ejs",{
+                res.render("web/rooms.ejs",{
                     link: data.roomPicture,
                 });
         }else{
@@ -173,6 +173,11 @@ app.get("/room", function(req, res){
     }else{
         res.redirect('back');
     }
+});
+
+app.get("/logout",function(req,res){
+    req.session.destroy();
+    res.redirect("/");
 });
 
 //look if the connection actually works
