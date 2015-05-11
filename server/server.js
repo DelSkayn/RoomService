@@ -50,14 +50,14 @@ app.post("/login", function(req, res){
     console.log(req.body);
     if(typeof req.body.name !== 'undefined'){
         Types.User.findOne({userName: req.body.name,passWord: req.body.pass}
-            ,function(err,ress){
+            ,function(err,data){
             if(res){
                 console.log("User logging in");
                 req.session.regenerate(function(){
                     req.session.userName = data.userName;
                     req.session.isAdmin = data.isAdmin;
                     req.session.auth = true;
-                    res.redirect('back');
+                    res.redirect('/');
                 });
             }else{
                console.log("User auth failed");
