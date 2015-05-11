@@ -126,19 +126,21 @@ app.post("/register", function(req, res){
 
 
 app.get("/floor", function(req, res){ 
-    var floor = req.params.floorname;
+    var floor = req.query.floorname;
     console.log(floor);
     if(floor){
     Types.Floor.findOne({floorName: floor},'roomPos roomName',function(err,data){
         if(data){
             Types.Room.find({floorId: data._id},function(err2,roomData){
-                res.render("web/floor.ejs",{
+                console.log(roomData);
+                res.render("web/floors.ejs",{
                     link: data.roomPicture,
                     rooms: roomData,
                 });
             });
         }else{
-            res.redirect("/");
+            req.session.error = "Floor not found";
+            res.redirect("/register");
         }
     });
     }else{

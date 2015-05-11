@@ -60,6 +60,7 @@ var Comment = mongoose.model('Comment', commentSchema);
 
 exports.User = User;
 exports.Table = Table;
+exports.Room = Room;
 exports.Floor = Floor;
 exports.Rating = Rating;
 exports.Comment = Comment;
