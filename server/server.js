@@ -82,47 +82,44 @@ app.post("/register", function(req, res){
     if( (typeof req.body.name !== 'undefined')&&
         (typeof req.body.pass !== 'undefined') &&
         (typeof req.body.pass2 !== 'undefined') &&
-        (typeof req.body.checked !== 'undefined') &&
+        (typeof req.body.check !== 'undefined') &&
         (typeof req.body.email !== 'undefined')){
 
-        if(!req.body.checked){
-            req.session.error = "Please check the box";
+        if(req.body.check != 'on'){
+            //req.session.error = "Please check the box";
             res.redirect("/register");
-        }
-        
-        if(req.body.pass !== req.body.pass2){
-            req.session.error = "Passwords dont match";
+        }else if(req.body.pass != req.body.pass2){
+            //req.session.error = "Passwords dont match";
             res.redirect("/register");
-        }
-
-        if(req.body.name == '') {
+        }else if(req.body.name === "") {
             req.session.error = "Please fill in a name";
             res.redirect("/register");
-        }
-
-        if(req.body.pass.length < 5){
+        }else if(req.body.pass.length < 5){
             req.session.error = "Please fill in a name";
             res.redirect("/register");
-        }
+        }else{
         
         Types.User.findOne({userName: req.body.name},function(err,data){
             if(data){
-                req.session.error = "Username allready taken";
+                req.session.error = "Username already taken";
                 res.redirect("/register");
             }else{
-                var newUser = new User({
+                var newUser = new Types.User({
                     userName:req.body.name,
                     passWord: req.body.pass,
                     eMail: req.body.email,
                     isAdmin: false,
                 });
-                newUser.save();
+                newUser.save(function(err){
+                    console.log(err);
+                });
                 res.redirect("/");
             }
         });
+        }
         
     }else{
-        req.session.error = "Hmm something went wrong here";
+        req.session.error = "Please check the box";
         res.redirect("/register");
     }
 });
