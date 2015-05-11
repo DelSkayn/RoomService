@@ -27,6 +27,7 @@ app.use("/bootstrap", express.static(client_dir + '/bootstrap'));
 app.use("/jquery", express.static(client_dir + '/jquery'));
 app.use("/src", express.static(client_dir + '/src'));
 app.use("/res", express.static(client_dir + '/res'));
+app.use("/image-map-resizer",express.static(client_dir + "/image-map-resizer"));
 
 //log on error
 app.on('error', function (err){

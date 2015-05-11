@@ -52,10 +52,10 @@
 	<div class="rs-map-wrapper" >
 		<div class="fluid-container rs-map-container">
             <img src="res/<%=link%>" alt="beganegrond" usemap="map" width="50%" height="50%">
+	        <map name="map">
                 <% for(var i=0; i<rooms.length; i++) {%>
                 <area shape="rect" coords="<%=rooms[i].roomPos[0]%>,<%=rooms[i].roomPos[1]%>,<%=rooms[i].roomPos[2]%>,<%=rooms[i].roomPos[3]%>" href="312.html" alt="<%=rooms[i].roomName%>">
                 <% } %>
-	        <map name="map">
             </map>
             <br/>
 			<button id="collapse" class="btn">Comments</button>
