@@ -34,7 +34,12 @@ app.on('error', function (err){
 });
 
 app.get('/',function(req,res){
-    res.render("index.ejs");
+    if(typeof req.session.userName !== 'undefined'){
+        console.log("user is loged in");
+        res.render("index.ejs",{username: req.session.userName});
+    }else{
+        res.render("index.ejs");
+    }
 });
 
 app.get("/login", function(req, res){ 
@@ -145,12 +150,29 @@ app.get("/floor", function(req, res){
         }
     });
     }else{
-        res.redirect("/");
+        res.redirect('back');
     }
 });
 
-app.post("/room", function(req, res){ 
-    res.render("web/room.ejs");
+app.get("/room", function(req, res){ 
+    var room = req.query.roomname;
+    console.log(room);
+    if(room){
+    Types.Floor.findOne({roomName: room},'floorName floorPicture',function(err,data){
+        if(data){
+                console.log(roomData);
+                console.log(data);
+                res.render("web/floors.ejs",{
+                    link: data.roomPicture,
+                });
+        }else{
+            req.session.error = "room not found";
+            res.redirect("/register");
+        }
+    });
+    }else{
+        res.redirect('back');
+    }
 });
 
 //look if the connection actually works

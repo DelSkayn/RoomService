@@ -24,17 +24,21 @@
 			<img alt="Brand" class="rs-img-resize" src="res/logo-small.png">
 		</a>
         </div>
-        <div class="rs-registerbutton">
-		<a class="navbar-brand" href="/register">
-		    <button class="btn btn-default">Register</button>
-		</a>
-        </div>
-        <div class="rs-loginbutton">
-		<a class="navbar-brand" href="/login">
-		    <button class="btn btn-default">Login</button>
-		</a>
-        </div>
-    </div>
+        <% if(typeof username === "undefined"){ %>
+            <div class="rs-registerbutton">
+            <a class="navbar-brand" href="/register">
+                <button class="btn btn-default">Register</button>
+            </a>
+            </div>
+            <div class="rs-loginbutton">
+            <a class="navbar-brand" href="/login">
+                <button class="btn btn-default">Login</button>
+            </a>
+            </div>
+        <% }else{%>
+                <p class="navbar-text"> Welcome <%= username %>   </p>
+         <%}%>    
+     </div>
 </nav>
 <div class="container">
     <div class="rs-register-container">
@@ -46,9 +50,9 @@
         Currently, only classrooms in the snellius building are up for discussing.
         </p>
         <p>
-        <a href="/floors">Snellius Ground Floor</a>
+        <a href="/floor?floorname=f0">Snellius Ground Floor</a>
         <br/>
-        <a href="/floors">Snellius First Floor</a>
+        <a href="/floor?floorname=f1">Snellius First Floor</a>
         </p>
     </div>
 </div>

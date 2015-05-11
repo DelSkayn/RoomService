@@ -32,19 +32,19 @@
 			<img alt="Brand" class="rs-img-resize" src="res/logo-small.png">
 		</a>
         </div>
-        <% if(typeof user === "undefined"){ %>
+        <% if(typeof username === "undefined"){ %>
             <div class="rs-registerbutton">
-            <a class="navbar-brand" href="register.html">
+            <a class="navbar-brand" href="/register">
                 <button class="btn btn-default">Register</button>
             </a>
             </div>
             <div class="rs-loginbutton">
-            <a class="navbar-brand" href="login.html">
+            <a class="navbar-brand" href="/login">
                 <button class="btn btn-default">Login</button>
             </a>
             </div>
         <% }else{%>
-            <p> Welcome <%= user %> </p>
+            <p> Welcome <%= username %> </p>
          <%}%>
     </div>
 </nav>
@@ -52,7 +52,7 @@
 	<div class="rs-map-wrapper" >
 		<div class="fluid-container rs-map-container">
             <img src="res/<%=link%>" alt="beganegrond" usemap="map" width="50%" height="50%">
-                <% for(var i=0; i<rooms.length; i++) {%>
+                <% for(var i=0; i<tables.length; i++) {%>
                 <area shape="rect" coords="<%=rooms[i].roomPos[0]%>,<%=rooms[i].roomPos[1]%>,<%=rooms[i].roomPos[2]%>,<%=rooms[i].roomPos[3]%>" href="312.html" alt="<%=roomName%>">
                 <% } %>
 	        <map name="map">
