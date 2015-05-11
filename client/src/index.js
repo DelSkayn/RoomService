@@ -16,6 +16,16 @@ function setSidebarVisablity(visable){
         toggleSidebarVisablity();
     }
 }
+function singleClick(e) {
+    setSidebarVisablity(true);
+    e.stopPropagation();
+    $('#rs-comments').attr('src','/comment?room=' + $(this).attr('alt'));
+    console.log($('#rs-comments').attr('src'));
+}
+
+function doubleClick(e) {
+    $(location).attr('href','/room?roomname=' + $(this).attr('alt')); 
+}
 
 
 $(document).ready(function() {
@@ -27,11 +37,21 @@ $(document).ready(function() {
         setSidebarVisablity(false);
     });
     $('area').each(function() {
-            $(this).click(function(event) {
-                setSidebarVisablity(true);
-                event.stopPropagation();
-                $('#rs-comments').attr('src','/comment?room=' + $(this).attr('alt'));
-                console.log($('#rs-comments').attr('src'));
-            });
+        $(this).click(function(e) {
+            var that = this;
+            setTimeout(function() {
+                var dblclick = parseInt($(that).data('double'), 10);
+                if (dblclick > 0) {
+                    $(that).data('double', dblclick-1);
+                } else {
+                    singleClick.call(that, e);
+                }
+            }, 300);
+        }).dblclick(function(e) {
+            $(this).data('double', 2);
+            doubleClick.call(this, e);
         });
+
+    });
 });
+

@@ -157,15 +157,16 @@ app.get("/floor", function(req, res){
 });
 
 app.get("/room", function(req, res){ 
+    console.log("request for room");
     var room = req.query.roomname;
     console.log(room);
     if(room){
-        Types.Floor.findOne({roomName: room},'roomPicture',function(err,data){
+        Types.Room.findOne({roomName: room},'roomPicture',function(err,data){
             if(data){
-                console.log(roomData);
                 console.log(data);
                 res.render("web/rooms.ejs",{
                     link: data.roomPicture,
+                    name: room,
                 });
             }else{
                 req.session.error = "room not found";
@@ -183,6 +184,7 @@ app.get("/logout",function(req,res){
 });
 
 app.get("/comment",function(req,res){
+    console.log("request for comment");
     var room = req.query.room;
     console.log(room);
     if(room){
@@ -190,7 +192,6 @@ app.get("/comment",function(req,res){
             if(data){
                 Types.Comment.find({roomID: data._id},"commentText userID",function(err,commdata){
                     var res_data = new Object;
-                    console.log(room);
                     if(typeof req.session.userName !== 'undefined'){
                         console.log("user is logged in");
                     }
@@ -198,8 +199,6 @@ app.get("/comment",function(req,res){
                     res_data.name = room;
                     res_data.comments = [];
                     if(commdata.length > 0){
-                        console.log(commdata);
-                        console.log(commdata.length);
                         async.filter(commdata,function(elem,callback){
                             var id = elem.userID;
                             Types.User.findOne({_id:id},'userName',function(err,userdata){
@@ -210,7 +209,6 @@ app.get("/comment",function(req,res){
                                 callback();
                             });
                         },function(){
-                            console.log("called");
                             res.render("web/comments.ejs",res_data);
                         });
                     }else{

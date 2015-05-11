@@ -95,11 +95,11 @@ admin_peoples.forEach(function(adm){
 var floors = [
     new Floor({
         floorName: "f1",
-        floorPicture: "f1.jpg",
+        floorPicture: "f1.png",
     }),
     new Floor({
         floorName: "f0",
-        floorPicture: "f0.jpg",
+        floorPicture: "f0.png",
     })];
 
 
@@ -192,46 +192,46 @@ var floors = [
                 new Room({
                     roomName:"B4",
                     roomPos: [10,535,240,650],
-                    roomPicture: "B02.jpg",
+                    roomPicture: "B02.png",
                     floorId: f0ID,
                 }),
                 new Room({
                     roomName:"B3",
                     roomPos: [10,655,240,765],
-                    roomPicture: "B02.jpg",
+                    roomPicture: "B02.png",
                     floorId: f0ID,
                 }),
                 new Room({
                     roomName:"B2",
                     roomPos: [10,775,240,885],
-                    roomPicture: "B02.jpg",
+                    roomPicture: "B02.png",
                     floorId: f0ID,
                 }),
 
                 new Room({
                     roomName:"B1",
                     roomPos: [10,895,225,1005],
-                    roomPicture: "B02.jpg",
+                    roomPicture: "B02.png",
                     floorId: f0ID,
                 }),
                 //--------------------------------
                 new Room({
                     roomName:"412",
                     roomPos: [340,20,465,185],
-                    roomPicture: "312.jpg",
+                    roomPicture: "312.png",
                     floorId: f1ID,
                 }),
                 new Room({
                     roomName:"413",
                     roomPos: [475,20,605,185],
-                    roomPicture: "313.jpg",
+                    roomPicture: "313.png",
                     floorId: f1ID,
                 }),
 
                 new Room({
                     roomName:"410",
                     roomPos: [335,190,440,300],
-                    roomPicture: "312.jpg",
+                    roomPicture: "312.png",
                     floorId: f1ID,
                 }),
 
@@ -240,7 +240,7 @@ var floors = [
 
                     roomPos: [335,305,440,410],
 
-                    roomPicture: "312.jpg",
+                    roomPicture: "312.png",
                     floorId: f1ID,
                 }),
 
@@ -249,7 +249,7 @@ var floors = [
 
                     roomPos: [335,415,440,525],
 
-                    roomPicture: "312.jpg",
+                    roomPicture: "312.png",
                     floorId: f1ID,
                 }),
 
@@ -258,7 +258,7 @@ var floors = [
 
                     roomPos: [335,525,440,635],
 
-                    roomPicture: "312.jpg",
+                    roomPicture: "312.png",
                     floorId: f1ID,
                 }),
 
@@ -267,7 +267,7 @@ var floors = [
 
                     roomPos: [335,640,440,745],
 
-                    roomPicture: "312.jpg",
+                    roomPicture: "312.png",
                     floorId: f1ID,
                 }),
 
@@ -276,7 +276,7 @@ var floors = [
 
                     roomPos: [505,190,605,300],
 
-                    roomPicture: "303.jpg",
+                    roomPicture: "303.png",
                     floorId: f1ID,
                 }),
 
@@ -285,46 +285,46 @@ var floors = [
 
                     roomPos: [505,305,605,410],
 
-                    roomPicture: "303.jpg",
+                    roomPicture: "303.png",
                     floorId: f1ID,
                 }),
 
                 new Room({
                     roomName:"407",
                     roomPos: [505,415,605,525],
-                    roomPicture: "303.jpg",
+                    roomPicture: "303.png",
                     floorId: f1ID,
                 }),
 
                 new Room({
                     roomName:"405",
                     roomPos: [505,525,605,635],
-                    roomPicture: "303.jpg",
+                    roomPicture: "303.png",
                     floorId: f1ID,
                 }),
 
                 new Room({
                     roomName:"403",
                     roomPos: [505,640,605,745],
-                    roomPicture: "303.jpg",
+                    roomPicture: "303.png",
                     floorId: f1ID,
                 }),
                 new Room({
                     roomName:"401",
                     roomPos: [505,750,605,855],
-                    roomPicture: "303.jpg",
+                    roomPicture: "303.png",
                     floorId: f1ID,
                 }),
                 new Room({
                     roomName:"176",
                     roomPos: [210,750,325,860],
-                    roomPicture: "312.jpg",
+                    roomPicture: "312.png",
                     floorId: f1ID,
                 }),
                 new Room({
                     roomName:"174",
                     roomPos: [20,750,205,860],
-                    roomPicture: "312.jpg",
+                    roomPicture: "312.png",
                     floorId: f1ID,
                 })];
 
