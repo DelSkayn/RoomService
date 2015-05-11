@@ -63,17 +63,17 @@ app.post("/login", function(req, res){
                console.log("User auth failed");
                req.session.error = 'Authentication failed';
                res.redirect('login');
+            }
         });
     }
 });
 
 app.get("/register", function(req, res){ 
-    res.render("web/login.ejs");
+    res.render("web/register.ejs");
 });
 
 app.post("/register", function(req, res){ 
-    console
-    res.render("web/login.ejs");
+    res.render("web/register.ejs");
 });
 
 app.post("/floor", function(req, res){ 
