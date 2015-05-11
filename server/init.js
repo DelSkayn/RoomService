@@ -95,11 +95,11 @@ admin_peoples.forEach(function(adm){
 var floors = [
     new Floor({
         floorName: "f1",
-        floorPicture: "f1.png",
+        floorPicture: "f1.jpg",
     }),
     new Floor({
         floorName: "f0",
-        floorPicture: "f0.png",
+        floorPicture: "f0.jpg",
     })];
 
 
@@ -146,7 +146,7 @@ var floors = [
                 new Room({
                     roomName:"306/308",
                     roomPos: [835,300,940,515],
-                    roomPicture: "302/png",
+                    roomPicture: "302.png",
                     floorId: f0ID,
                 }),
                 new Room({
